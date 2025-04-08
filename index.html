@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Comparative App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Article Comparison Tool</h1>
+        
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Article 1</div>
+                    <div class="card-body">
+                        <textarea id="article1" class="form-control" rows="10" 
+                            placeholder="Paste first article text here"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Article 2</div>
+                    <div class="card-body">
+                        <textarea id="article2" class="form-control" rows="10" 
+                            placeholder="Paste second article text here"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button id="compareBtn" class="btn btn-primary mb-4">Compare Articles</button>
+        
+        <div id="result" class="card" style="display: none;">
+            <div class="card-header">Comparison Results</div>
+            <div class="card-body">
+                <div id="comparisonText"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('compareBtn').addEventListener('click', async function() {
+            const article1 = document.getElementById('article1').value;
+            const article2 = document.getElementById('article2').value;
+            
+            if (!article1 || !article2) {
+                alert('Please enter text for both articles');
+                return;
+            }
+            
+            // Simple comparison without API - later you can integrate with GPT
+            const result = `
+                <h3>Comparison Summary</h3>
+                <p>Article 1 has ${article1.split(' ').length} words</p>
+                <p>Article 2 has ${article2.split(' ').length} words</p>
+                <hr>
+                <h3>Common Words</h3>
+                <p>Some analysis would go here - you can later connect this to GPT</p>
+            `;
+            
+            document.getElementById('comparisonText').innerHTML = result;
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
