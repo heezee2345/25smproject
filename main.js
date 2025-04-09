@@ -1,6 +1,4 @@
-async function compareWithGPT(article1, article2) {
-    const apiKey = "your-api-key"; // Better to use environment variables
-    
+async function compareWithGPT(article1, article2) {    
     const prompt = `
         Compare these two articles and provide an analysis:
         
